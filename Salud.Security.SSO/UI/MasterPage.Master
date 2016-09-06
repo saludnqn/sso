@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Salud.Security.SSO.MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+  <link rel="stylesheet" href="style.css" media="screen" id="lnkStyleSheet"/>
+    <telerik:RadScriptBlock runat="server" ID="styleFullPage">
+        
+    </telerik:RadScriptBlock>
+    <telerik:RadScriptBlock runat="server" ID="styleInnerPage">
+        <style type="text/css">
+            HTML, BODY, FORM, #ssoMainContainer, #ssoMainContainer > TABLE > TBODY > TR > TD
+            {
+                height: 100%;
+                /*background: rgb(247,219,0) rgb(247,200,0);*/
+                background: rgb(2, 171, 104);
+                vertical-align: middle;
+                min-width: inherit !important;
+            }
+            
+            #ssoMainContainer > TABLE
+            {
+                width: 100%;
+                height: 100%;
+            }
+            
+            #ssoMainContainer > TABLE > TBODY > TR > TD:nth-child(1)
+            {
+                border-right: 6px solid Black;
+                padding: 0px 20px;
+                text-align: right;
+                vertical-align: middle;
+            }
+            
+            #ssoMainContainer > TABLE > TBODY > TR > TD:nth-child(1) IMG
+            {
+                width: 100px;
+            }
+            
+            #ssoMainContainer > TABLE > TBODY > TR > TD:nth-child(2)
+            {
+                background: white;
+            }
+            
+            #ssoMainContainer > TABLE > TBODY > TR > TD:nth-child(2) > DIV
+            {
+                padding: 10px;
+            }
+        </style>
+    </telerik:RadScriptBlock>
+</head>
+<body id="MasterPageBody">
+    <form id="Form" runat="server" autocomplete="off">           
+    <div id="ssoMainContainer">
+        <table style="height: 305px">
+            <tr>
+                <td>
+                    <asp:Panel runat="server" Visible="false">
+                        <asp:Image ID="imgLogo" runat="server" />
+                        <%--<asp:Label ID="lblEfector" runat="server" />--%>
+                        <telerik:RadMenu ID="SessionMenu" runat="server">
+                            <Items>
+                                <telerik:RadMenuItem runat="server" Owner="SessionMenu" Width="100%" PostBack="false">
+                                    <ItemTemplate>
+                                        <div class="avatar">
+                                            <asp:Image runat="server" ID="imgAvatar"/>
+                                        </div>
+                                    </ItemTemplate>
+                                </telerik:RadMenuItem>
+                            </Items>
+                        </telerik:RadMenu>
+                        <%--<salud:ButtonEx ID="feedbackButton" runat="server" />
+                        <asp:Panel runat=server ID="pnlSessionInfo" CssClass="sessionInfo"></asp:Panel>--%>
+
+                    </asp:Panel>
+                    <img id="ssoLogo" src="Resources/logoIcon.png" /><br />
+                    <img src="Resources/logoText.png" />
+                </td>
+                <td>
+                    <div>
+                        <asp:ContentPlaceHolder ID="StylesPlaceHolder" runat="server" />
+                        <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server" />
+                        <asp:ContentPlaceHolder ID="ContentBodyPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <%--<script type="text/javascript">
+        $(document).ready(function () {
+            var angle = 0;
+            setInterval(function () {
+                angle += 1;
+                $("#ssoLogo").rotate(angle);
+            }, 50);
+        });
+    </script>--%>
+    </form>
+</body>
+</html>

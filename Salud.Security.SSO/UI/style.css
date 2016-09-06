@@ -1,0 +1,29 @@
+﻿HTML, BODY, FORM, #ssoMainContainer, #ssoMainContainer > TABLE > TBODY > TR > TD
+        {
+            height: 100%;
+         
+            background-color: rgb(2, 171, 104);
+                        vertical-align: middle;
+            min-width: inherit !important;
+        }
+        
+        #ssoMainContainer > TABLE
+        {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #ssoMainContainer > TABLE > TBODY > TR > TD
+        {
+            border-right: 6px solid Black;
+            padding-right: 20px;
+        }
+        
+        #ssoMainContainer > TABLE > TBODY > TR > TD > DIV
+        {
+            background: white;
+            border-right: 6px solid Black;
+            min-height: 250px;
+            margin-right: 50px;
+            padding: 20px;
+        }

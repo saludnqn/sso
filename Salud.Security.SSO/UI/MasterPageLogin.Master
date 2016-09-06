@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPageLogin.master.cs"
+    Inherits="Salud.Security.SSO.MasterPageLogin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head runat="server">
+    <link rel="stylesheet" href="style.css" media="screen" id="lnkStyleSheet"/>
+    <title></title>
+    
+</head>
+<body id="MasterPageBody">
+    <form id="Form" runat="server" autocomplete="off">
+    <div id="ssoMainContainer">
+        <table>
+            <tr>
+                <td style="text-align: right;">
+                    <asp:Panel runat="server" Visible="false">
+                        <asp:Image ID="imgLogo" runat="server" />
+                        <div id="EfectorDiv">
+                            <asp:Label ID="lblEfector" runat="server" />
+                        </div>
+                        <asp:Menu ID="SessionMenu" runat="server">
+                            <Items>
+                                <asp:MenuItem runat="server"></asp:MenuItem>
+                            </Items>
+                            <StaticItemTemplate>                                
+                                <div class="avatar">
+                                    <asp:Image runat="server" ID="imgAvatar" />
+                                </div>                                
+                            </StaticItemTemplate>
+                        </asp:Menu>
+                        <asp:Button ID="feedbackButton" runat="server" />                        
+                        <asp:Panel runat="server" ID="pnlSessionInfo" CssClass="sessionInfo">
+                        </asp:Panel>
+                    </asp:Panel>
+                    <img id="ssoLogo" style="right: 200px;" src="Resources/logoIcon.png" /><br />
+                    <img src="Resources/logoText.png" />
+                </td>
+                <td>
+                    <div>
+                        <asp:ContentPlaceHolder ID="StylesPlaceHolder" runat="server" />
+                        <asp:ContentPlaceHolder ID="ScriptsPlaceHolder" runat="server" />
+                        <asp:ContentPlaceHolder ID="ContentBodyPlaceHolder" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var angle = 0;
+            setInterval(function () {
+                angle += 1;
+                $("#ssoLogo").rotate(angle);
+            }, 50);
+        });
+    </script>
+    </form>
+</body>
+</html>

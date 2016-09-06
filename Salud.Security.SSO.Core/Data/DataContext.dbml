@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SSO" Class="DataContext" AccessModifier="Internal" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.1.232.23;Initial Catalog=SSO;Persist Security Info=True;User ID=sa" SettingsObjectName="Salud.Security.SSO.Properties.Settings" SettingsPropertyName="SSOConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.SSO_Messages_TargetTypes" Member="SSO_Messages_TargetTypes">
+    <Type Name="SSO_Messages_TargetTypes">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SSO_Messages_TargetTypes_SSO_Messages_Targets" Member="SSO_Messages_Targets" ThisKey="id" OtherKey="targetType" Type="SSO_Messages_Targets" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Messages_StateTypes" Member="SSO_Messages_StateTypes">
+    <Type Name="SSO_Messages_StateTypes">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SSO_Messages_StateTypes_SSO_Messages_States" Member="SSO_Messages_States" ThisKey="id" OtherKey="idState" Type="SSO_Messages_States" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Messages_Targets" Member="SSO_Messages_Targets">
+    <Type Name="SSO_Messages_Targets">
+      <Column Name="idMessage" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="targetType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="target" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="SSO_Messages_TargetTypes_SSO_Messages_Targets" Member="SSO_Messages_TargetTypes" ThisKey="targetType" OtherKey="id" Type="SSO_Messages_TargetTypes" IsForeignKey="true" />
+      <Association Name="SSO_Messages_SSO_Messages_Targets" Member="SSO_Messages" ThisKey="idMessage" OtherKey="id" Type="SSO_Messages" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Messages_Types" Member="SSO_Messages_Types">
+    <Type Name="SSO_Messages_Types">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SSO_Messages_Types_SSO_Messages" Member="SSO_Messages" ThisKey="id" OtherKey="type" Type="SSO_Messages" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Roles" Member="SSO_Roles">
+    <Type Name="SSO_Roles">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="parent" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="SSO_Roles_SSO_Roles" Member="SSO_Roles2" ThisKey="id" OtherKey="parent" Type="SSO_Roles" />
+      <Association Name="SSO_Roles_SSO_Roles" Member="SSO_Roles1" ThisKey="parent" OtherKey="id" Type="SSO_Roles" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Messages_States" Member="SSO_Messages_States">
+    <Type Name="SSO_Messages_States">
+      <Column Name="idMessage" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="idUser" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="updatedOn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="idState" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="rememberOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="SSO_Messages_StateTypes_SSO_Messages_States" Member="SSO_Messages_StateTypes" ThisKey="idState" OtherKey="id" Type="SSO_Messages_StateTypes" IsForeignKey="true" />
+      <Association Name="SSO_Messages_SSO_Messages_States" Member="SSO_Messages" ThisKey="idMessage" OtherKey="id" Type="SSO_Messages" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="SSO_Users_SSO_Messages_States" Member="SSO_Users" ThisKey="idUser" OtherKey="id" Type="SSO_Users" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Messages" Member="SSO_Messages">
+    <Type Name="SSO_Messages">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="message" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="expiresOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="SSO_Messages_SSO_Messages_Targets" Member="SSO_Messages_Targets" ThisKey="id" OtherKey="idMessage" Type="SSO_Messages_Targets" />
+      <Association Name="SSO_Messages_SSO_Messages_States" Member="SSO_Messages_States" ThisKey="id" OtherKey="idMessage" Type="SSO_Messages_States" />
+      <Association Name="SSO_Messages_SSO_Messages_Notifications" Member="SSO_Messages_Notifications" ThisKey="id" OtherKey="idMessage" Type="SSO_Messages_Notifications" />
+      <Association Name="SSO_Messages_Types_SSO_Messages" Member="SSO_Messages_Types" ThisKey="type" OtherKey="id" Type="SSO_Messages_Types" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Modules" Member="SSO_Modules">
+    <Type Name="SSO_Modules">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="applicationId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="module" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="readonly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="protected" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="needsView" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="groupId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="interfase_priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="interfase_visible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="interfase_image" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Log_Group" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Log_Key" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SSO_Modules_SSO_ModulePages" Member="SSO_ModulePages" ThisKey="id" OtherKey="moduleId" Type="SSO_ModulePages" />
+      <Association Name="SSO_Applications_SSO_Modules" Member="SSO_Applications" ThisKey="applicationId" OtherKey="id" Type="SSO_Applications" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_ModulePages" Member="SSO_ModulePages">
+    <Type Name="SSO_ModulePages">
+      <Column Name="page" Type="System.String" DbType="VarChar(200) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="moduleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="mainPage" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="SSO_Modules_SSO_ModulePages" Member="SSO_Modules" ThisKey="moduleId" OtherKey="id" Type="SSO_Modules" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Applications" Member="SSO_Applications">
+    <Type Name="SSO_Applications">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="executable" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="url" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="intefase_visible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="version" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="SSO_Applications_SSO_Modules" Member="SSO_Modules" ThisKey="id" OtherKey="applicationId" Type="SSO_Modules" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Sessions" Member="SSO_Sessions">
+    <Type Name="SSO_Sessions">
+      <Column Name="id" Type="System.String" DbType="VarChar(512) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="timeout" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="lasttime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="locked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="userIP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="idEfector" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Column Name="idEfectorRol" Type="System.Int32" DbType="int" CanBeNull="false" />
+      <Association Name="SSO_Users_SSO_Sessions" Member="SSO_Users" ThisKey="userId" OtherKey="id" Type="SSO_Users" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Permissions_Cache" Member="SSO_Permissions_Cache">
+    <Type Name="SSO_Permissions_Cache">
+      <Column Name="autoId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="applicationId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="targetType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="target" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="inherited" Type="System.Boolean" DbType="Bit NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="roleId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="groupId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="roleDepthFromUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="allow" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="readonly" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="endDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_AccessLog" Member="SSO_AccessLog">
+    <Type Name="SSO_AccessLog">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="moduleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="viewId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="timeIn" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="timeOut" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="result" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="externalKey" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Messages_NotificationTypes" Member="SSO_Messages_NotificationTypes">
+    <Type Name="SSO_Messages_NotificationTypes">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SSO_Messages_NotificationTypes_SSO_Messages_Notifications" Member="SSO_Messages_Notifications" ThisKey="id" OtherKey="notificationType" Type="SSO_Messages_Notifications" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Messages_Notifications" Member="SSO_Messages_Notifications">
+    <Type Name="SSO_Messages_Notifications">
+      <Column Name="idMessage" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="notificationType" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="SSO_Messages_SSO_Messages_Notifications" Member="SSO_Messages" ThisKey="idMessage" OtherKey="id" Type="SSO_Messages" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="SSO_Messages_NotificationTypes_SSO_Messages_Notifications" Member="SSO_Messages_NotificationTypes" ThisKey="notificationType" OtherKey="id" Type="SSO_Messages_NotificationTypes" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_SMS_Log" Member="SSO_SMS_Log">
+    <Type Name="SSO_SMS_Log">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="datetime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="mobile" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="idCarrier" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="result" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="sourceUserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SSO_SMS_Carriers_SSO_SMS_Log" Member="SSO_SMS_Carriers" ThisKey="idCarrier" OtherKey="id" Type="SSO_SMS_Carriers" IsForeignKey="true" />
+      <Association Name="SSO_Users_SSO_SMS_Log" Member="SSO_Users" ThisKey="sourceUserId" OtherKey="id" Type="SSO_Users" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_SMS_Carriers" Member="SSO_SMS_Carriers">
+    <Type Name="SSO_SMS_Carriers">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="SSO_SMS_Carriers_SSO_SMS_Log" Member="SSO_SMS_Log" ThisKey="id" OtherKey="idCarrier" Type="SSO_SMS_Log" />
+      <Association Name="SSO_SMS_Carriers_SSO_Users" Member="SSO_Users" ThisKey="id" OtherKey="idCarrier" Type="SSO_Users" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SSO_Users" Member="SSO_Users">
+    <Type Name="SSO_Users">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="username" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="surname" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="mobile" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="idCarrier" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="external_id" Type="System.Object" DbType="Variant" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="locked" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="locked_since" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="password_retry" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="must_change_password" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="permissions_updatedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="documento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="legajo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="observacion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="SSO_Users_SSO_Messages_States" Member="SSO_Messages_States" ThisKey="id" OtherKey="idUser" Type="SSO_Messages_States" />
+      <Association Name="SSO_Users_SSO_Sessions" Member="SSO_Sessions" ThisKey="id" OtherKey="userId" Type="SSO_Sessions" />
+      <Association Name="SSO_Users_SSO_SMS_Log" Member="SSO_SMS_Log" ThisKey="id" OtherKey="sourceUserId" Type="SSO_SMS_Log" />
+      <Association Name="SSO_SMS_Carriers_SSO_Users" Member="SSO_SMS_Carriers" ThisKey="idCarrier" OtherKey="id" Type="SSO_SMS_Carriers" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SSO_UserInRole" Method="SSO_UserInRole" IsComposable="true">
+    <Parameter Name="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="roleId" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_SSO_QueueMessage" Method="sp_SSO_QueueMessage">
+    <Parameter Name="isHTML" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="subject" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="message" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="expiresOn" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="messageType" Type="System.Int32" DbType="Int" />
+    <Parameter Name="notifications" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="targets" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="sendNow" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="outputResults" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="sp_SSO_QueueMessageResult">
+      <Column Name="messageId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="userFullname" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="notificationType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="notificationName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="errorType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="errorName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.hsp_Common_LastUpdated" Method="hsp_Common_LastUpdated" IsComposable="true">
+    <Parameter Name="tableName" Type="System.String" DbType="VarChar(200)" />
+    <Return Type="System.DateTime" />
+  </Function>
+  <Function Name="dbo.SSO_ObtenerEfectores" Method="SSO_ObtenerEfectores">
+    <Parameter Name="idUsuario" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SSO_ObtenerEfectoresResult">
+      <Column Name="id" Type="System.String" DbType="VarChar(61)" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

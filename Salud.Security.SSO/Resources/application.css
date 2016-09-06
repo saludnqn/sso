@@ -1,0 +1,29 @@
+﻿.ssoMessageBox
+{
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.ssoTipSeguridad
+{
+    background: #E1E1E1;
+    padding: 10px 10px 10px 50px;
+    margin: 10px 0px;
+    display: inline-block;
+    background-image: url('tip.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    max-width:500px;
+    min-width:200px;
+}
+
+.ssoTipSeguridad DIV
+{
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.ssoTipSeguridad SPAN
+{
+    font-size: smaller;
+}

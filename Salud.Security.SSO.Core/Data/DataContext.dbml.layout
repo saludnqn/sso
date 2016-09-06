@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 22.375, 8.75" name="DataContext">
+  <DataContextMoniker Name="/DataContext" />
+  <nestedChildShapes>
+    <classShape Id="c00380ea-7f23-4b27-9a9f-d7e8e96c43e5" absoluteBounds="9, 5.375, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DataContext/SSO_Messages_TargetTypes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="19aba1e9-ec31-41f3-a050-fe0339e7aae4" absoluteBounds="9.015, 5.8350000000000009, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="49961a3e-836f-43bd-903f-862cf5a226a2" absoluteBounds="3.375, 2, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DataContext/SSO_Messages_StateTypes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e0b3d21d-3025-4894-9c91-c256e29409bc" absoluteBounds="3.39, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e590996a-d5eb-4f11-af8e-b7a486114dd0" absoluteBounds="10.125, 7.125, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DataContext/SSO_Messages_Targets" />
+      <nestedChildShapes>
+        <elementListCompartment Id="910314fb-3095-41d6-9318-7da0c9d13f28" absoluteBounds="10.14, 7.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10.5625 : 6.56899251302083); (10.5625 : 7.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Messages_TargetTypes/SSO_Messages_TargetTypes_SSO_Messages_Targets" />
+      <nodes>
+        <classShapeMoniker Id="c00380ea-7f23-4b27-9a9f-d7e8e96c43e5" />
+        <classShapeMoniker Id="e590996a-d5eb-4f11-af8e-b7a486114dd0" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="6b75bdfe-e7ae-4750-a496-fbc987bd8315" absoluteBounds="3.5, 5, 2, 1.1939925130208344">
+      <DataClassMoniker Name="/DataContext/SSO_Messages_Types" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ec675119-cd73-472b-a7cc-c77ffab6b2de" absoluteBounds="3.515, 5.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="20bd1f84-6ddb-4ab4-b7f9-002c4dd37415" absoluteBounds="13.125, 6.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataContext/SSO_Roles" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d18f8992-b44c-419b-85da-edc71bf9b281" absoluteBounds="13.14, 6.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(13.8274234637921 : 7.95359537760417); (13.8274234637921 : 8.20359537760417); (14.4367468474559 : 8.20359537760417); (14.4367468474559 : 7.95359537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Roles/SSO_Roles_SSO_Roles" />
+      <nodes>
+        <classShapeMoniker Id="20bd1f84-6ddb-4ab4-b7f9-002c4dd37415" />
+        <classShapeMoniker Id="20bd1f84-6ddb-4ab4-b7f9-002c4dd37415" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="35198354-8b8c-419c-9868-d2a2b755bcdc" absoluteBounds="6.375, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataContext/SSO_Messages_States" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7cf8e48-3acb-4751-b3be-1ee6cad833f9" absoluteBounds="6.39, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 2.26044840494792); (6.375 : 2.26044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Messages_StateTypes/SSO_Messages_StateTypes_SSO_Messages_States" />
+      <nodes>
+        <classShapeMoniker Id="49961a3e-836f-43bd-903f-862cf5a226a2" />
+        <classShapeMoniker Id="35198354-8b8c-419c-9868-d2a2b755bcdc" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7e155763-56f6-4c96-89af-c1e7bfb68acc" absoluteBounds="6.375, 4.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/DataContext/SSO_Messages" />
+      <nestedChildShapes>
+        <elementListCompartment Id="170e3f66-9050-41e1-ba28-75fb2e89c690" absoluteBounds="6.39, 5.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.375 : 5.16905843098958); (11.71875 : 5.16905843098958); (11.71875 : 7.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Messages/SSO_Messages_SSO_Messages_Targets" />
+      <nodes>
+        <classShapeMoniker Id="7e155763-56f6-4c96-89af-c1e7bfb68acc" />
+        <classShapeMoniker Id="e590996a-d5eb-4f11-af8e-b7a486114dd0" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.375 : 4.75); (7.375 : 2.52089680989583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Messages/SSO_Messages_SSO_Messages_States" />
+      <nodes>
+        <classShapeMoniker Id="7e155763-56f6-4c96-89af-c1e7bfb68acc" />
+        <classShapeMoniker Id="35198354-8b8c-419c-9868-d2a2b755bcdc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 5.59699625651042); (6.375 : 5.59699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Messages_Types/SSO_Messages_Types_SSO_Messages" />
+      <nodes>
+        <classShapeMoniker Id="6b75bdfe-e7ae-4750-a496-fbc987bd8315" />
+        <classShapeMoniker Id="7e155763-56f6-4c96-89af-c1e7bfb68acc" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a70257a8-cb9d-4585-b501-fede400be213" absoluteBounds="17.625, 3.25, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/DataContext/SSO_Modules" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a9eda5b7-9481-4f2f-bd78-80ed7041fd75" absoluteBounds="17.64, 3.71, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3e587a6b-7f3f-4c8b-8883-7404b46ed938" absoluteBounds="20, 3.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/DataContext/SSO_ModulePages" />
+      <nestedChildShapes>
+        <elementListCompartment Id="49ecfa8c-3339-4af8-a276-28303692c2e3" absoluteBounds="20.015, 3.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(19.625 : 4.03929768880208); (20 : 4.03929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Modules/SSO_Modules_SSO_ModulePages" />
+      <nodes>
+        <classShapeMoniker Id="a70257a8-cb9d-4585-b501-fede400be213" />
+        <classShapeMoniker Id="3e587a6b-7f3f-4c8b-8883-7404b46ed938" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="d608203e-14bf-400d-b520-65090ce3aa02" absoluteBounds="17.625, 0.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/DataContext/SSO_Applications" />
+      <nestedChildShapes>
+        <elementListCompartment Id="082f3bf4-556e-47ba-be17-3250968786c8" absoluteBounds="17.64, 0.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(18.625 : 2.65549967447917); (18.625 : 3.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Applications/SSO_Applications_SSO_Modules" />
+      <nodes>
+        <classShapeMoniker Id="d608203e-14bf-400d-b520-65090ce3aa02" />
+        <classShapeMoniker Id="a70257a8-cb9d-4585-b501-fede400be213" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="7e672e0e-1c09-47d7-a282-f7948e0a2836" absoluteBounds="14.375, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DataContext/SSO_Sessions" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4f565902-3523-4f8e-98ac-f0787c321e2b" absoluteBounds="14.39, 0.96, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0a17872-23a8-45d6-a893-be347b01a831" isExpanded="false" absoluteBounds="20, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/DataContext/SSO_Permissions_Cache" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0a02c3cd-8eb3-469a-84c5-5b102d77f1db" absoluteBounds="20.015, 0.96, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbda933a-1877-4be6-bc19-c3b82c55b076" isExpanded="false" absoluteBounds="20.125, 5.375, 2, 0.45">
+      <DataClassMoniker Name="/DataContext/SSO_AccessLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a985682b-2766-4ada-97fb-7de0033dd7f8" absoluteBounds="20.14, 5.835, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b3885ae2-e047-4ef2-8f30-5b3c8ceab210" absoluteBounds="3.875, 7, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataContext/SSO_Messages_NotificationTypes" />
+      <nestedChildShapes>
+        <elementListCompartment Id="536ae83b-b6b9-43a7-91dc-d422a9e5a2b2" absoluteBounds="3.89, 7.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e20782d-6294-4958-a8ab-7a626f3dbe24" absoluteBounds="6.375, 7, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataContext/SSO_Messages_Notifications" />
+      <nestedChildShapes>
+        <elementListCompartment Id="10bc2b28-f630-41e7-8945-dc765acb2b87" absoluteBounds="6.39, 7.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.375 : 6.52089680989583); (7.375 : 7)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Messages/SSO_Messages_SSO_Messages_Notifications" />
+      <nodes>
+        <classShapeMoniker Id="7e155763-56f6-4c96-89af-c1e7bfb68acc" />
+        <classShapeMoniker Id="2e20782d-6294-4958-a8ab-7a626f3dbe24" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 7.59699625651042); (6.375 : 7.59699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Messages_NotificationTypes/SSO_Messages_NotificationTypes_SSO_Messages_Notifications" />
+      <nodes>
+        <classShapeMoniker Id="b3885ae2-e047-4ef2-8f30-5b3c8ceab210" />
+        <classShapeMoniker Id="2e20782d-6294-4958-a8ab-7a626f3dbe24" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="166a31a8-a97c-4710-9e69-8c74ba604a7c" isExpanded="false" absoluteBounds="11.875, 2.375, 2, 0.45">
+      <DataClassMoniker Name="/DataContext/SSO_SMS_Log" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8eaf5780-d4ca-4e7e-b426-49282378f176" absoluteBounds="11.89, 2.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b0d317e9-ec72-40be-9b29-00b178703190" isExpanded="false" absoluteBounds="11.875, 3.25, 2, 0.45">
+      <DataClassMoniker Name="/DataContext/SSO_SMS_Carriers" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dc6c16da-0409-4f2d-b167-57c71312bbf9" absoluteBounds="11.89, 3.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(12.875 : 3.25); (12.875 : 2.825)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_SMS_Carriers/SSO_SMS_Carriers_SSO_SMS_Log" />
+      <nodes>
+        <classShapeMoniker Id="b0d317e9-ec72-40be-9b29-00b178703190" />
+        <classShapeMoniker Id="166a31a8-a97c-4710-9e69-8c74ba604a7c" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="e6586ddb-6297-45fd-b9b0-b9429833c64c" absoluteBounds="9.125, 0.5, 2.125, 4.4631168619791666">
+      <DataClassMoniker Name="/DataContext/SSO_Users" />
+      <nestedChildShapes>
+        <elementListCompartment Id="40434ed3-2f76-4f97-88b7-b86b1adf5635" absoluteBounds="9.14, 0.96, 2.0949999999999998, 3.9031168619791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(9.125 : 1.63544840494792); (8.375 : 1.63544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Users/SSO_Users_SSO_Messages_States" />
+      <nodes>
+        <classShapeMoniker Id="e6586ddb-6297-45fd-b9b0-b9429833c64c" />
+        <classShapeMoniker Id="35198354-8b8c-419c-9868-d2a2b755bcdc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 1.40625); (14.375 : 1.40625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Users/SSO_Users_SSO_Sessions" />
+      <nodes>
+        <classShapeMoniker Id="e6586ddb-6297-45fd-b9b0-b9429833c64c" />
+        <classShapeMoniker Id="7e672e0e-1c09-47d7-a282-f7948e0a2836" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.25 : 2.6); (11.875 : 2.6)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_Users/SSO_Users_SSO_SMS_Log" />
+      <nodes>
+        <classShapeMoniker Id="e6586ddb-6297-45fd-b9b0-b9429833c64c" />
+        <classShapeMoniker Id="166a31a8-a97c-4710-9e69-8c74ba604a7c" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(11.875 : 3.475); (11.25 : 3.475)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataContext/SSO_SMS_Carriers/SSO_SMS_Carriers_SSO_Users" />
+      <nodes>
+        <classShapeMoniker Id="b0d317e9-ec72-40be-9b29-00b178703190" />
+        <classShapeMoniker Id="e6586ddb-6297-45fd-b9b0-b9429833c64c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
